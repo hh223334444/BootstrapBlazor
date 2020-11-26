@@ -1578,21 +1578,27 @@
             };
 
             $el.on('mouseenter', '.rate-item', function () {
-                var $items = $el.find('.rate-item');
-                var index = $items.toArray().indexOf(this);
-                $items.each(function (i) {
-                    if (i > index) $(this).removeClass('is-on');
-                    else $(this).addClass('is-on');
-                });
+                if (!$el.hasClass('disabled')) {
+                    var $items = $el.find('.rate-item');
+                    var index = $items.toArray().indexOf(this);
+                    $items.each(function (i) {
+                        if (i > index) $(this).removeClass('is-on');
+                        else $(this).addClass('is-on');
+                    });
+                }
             });
             $el.on('mouseleave', function () {
-                reset();
+                if (!$el.hasClass('disabled')) {
+                    reset();
+                }
             });
             $el.on('click', '.rate-item', function () {
-                var $items = $el.find('.rate-item');
-                $el.val = $items.toArray().indexOf(this);
-                $el.attr('aria-valuenow', $el.val + 1);
-                obj.invokeMethodAsync(method, $el.val + 1);
+                if (!$el.hasClass('disabled')) {
+                    var $items = $el.find('.rate-item');
+                    $el.val = $items.toArray().indexOf(this);
+                    $el.attr('aria-valuenow', $el.val + 1);
+                    obj.invokeMethodAsync(method, $el.val + 1);
+                }
             });
         },
         footer: function (el, target) {
@@ -1919,9 +1925,10 @@
     $(function () {
         new MutationObserver((mutations, observer) => {
             if (document.querySelector('#components-reconnect-modal h5 a')) {
-                async function attemptReload() {
-                    await fetch('');
-                    location.reload();
+                function attemptReload() {
+                    fetch('').then(() => {
+                        location.reload();
+                    });
                 }
                 observer.disconnect();
                 attemptReload();

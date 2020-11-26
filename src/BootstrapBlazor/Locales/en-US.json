@@ -166,8 +166,8 @@
     "SuccessText": "Successful",
     "FailText": "Failed",
     "DeleteButtonToastTitle": "Delete Data",
-    "DeleteButtonToastContent": "Please select DELETE rows, auto claose after {1}s",
-    "DeleteButtonToastResultContent": "Delete data {0}, auto claose after {1}s"
+    "DeleteButtonToastContent": "Please select DELETE rows, auto close after {1}s",
+    "DeleteButtonToastResultContent": "Delete data {0}, auto close after {1}s"
   },
   "BootstrapBlazor.Components.TableEditorDialog": {
     "CloseButtonText": "Close",

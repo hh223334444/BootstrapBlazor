@@ -21,6 +21,7 @@ namespace BootstrapBlazor.Components
         /// 获得 样式集合
         /// </summary>
         private string? ClassString => CssBuilder.Default("rate")
+            .AddClass("disabled", IsDisable)
             .AddClassFromAttributes(AdditionalAttributes)
             .Build();
 
@@ -38,6 +39,12 @@ namespace BootstrapBlazor.Components
         /// </summary>
         [Parameter]
         public int Value { get; set; }
+
+        /// <summary>
+        /// 获得/设置 是否禁用 默认为 false
+        /// </summary>
+        [Parameter]
+        public bool IsDisable { get; set; }
 
         /// <summary>
         /// 获得/设置 组件值变化时回调委托
@@ -59,7 +66,6 @@ namespace BootstrapBlazor.Components
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             await base.OnAfterRenderAsync(firstRender);
-
             if (firstRender)
             {
                 if (Interop == null) Interop = new JSInterop<Rate>(JSRuntime);
