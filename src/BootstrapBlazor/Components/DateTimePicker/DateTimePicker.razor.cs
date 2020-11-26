@@ -117,12 +117,12 @@ namespace BootstrapBlazor.Components
         /// 获得/设置 当前日期最大值
         /// </summary>
         [Parameter]
-        public DateTime MaxValue { get; set; } = DateTime.MaxValue;
+        public DateTime? MaxValue { get; set; }
 
         /// <summary>
         /// 获得/设置 当前日期最小值
         /// </summary>
-        public DateTime MinValue { get; set; }
+        public DateTime? MinValue { get; set; }
 
         [Inject]
         [NotNull]
