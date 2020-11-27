@@ -64,11 +64,11 @@ namespace BootstrapBlazor.Components
         private string? GetDayClass(DateTime day) => CssBuilder.Default("")
             .AddClass("prev-month", day.Month < CurrentDate.Month)
             .AddClass("next-month", day.Month > CurrentDate.Month)
-            .AddClass("current", day.Ticks == CurrentDate.Ticks && !IsRange)
-            .AddClass("start", IsRange && day.Ticks == Ranger!.SelectedValue.Start.Ticks)
-            .AddClass("end", IsRange && day.Ticks == Ranger!.SelectedValue!.End.Ticks)
+            .AddClass("current", day == CurrentDate && !IsRange)
+            .AddClass("start", IsRange && day == Ranger!.SelectedValue.Start)
+            .AddClass("end", IsRange && day == Ranger!.SelectedValue!.End)
             .AddClass("range", IsRange && CurrentDate.Month >= Ranger!.SelectedValue.Start.Month && (Ranger!.SelectedValue.Start != DateTime.MinValue) && (Ranger!.SelectedValue.End != DateTime.MinValue) && (day.Ticks >= Ranger!.SelectedValue.Start.Ticks) && (day.Ticks <= Ranger!.SelectedValue.End.Ticks))
-            .AddClass("today", day.Ticks == DateTime.Today.Ticks)
+            .AddClass("today", day == DateTime.Today)
             .Build();
 
         /// <summary>
