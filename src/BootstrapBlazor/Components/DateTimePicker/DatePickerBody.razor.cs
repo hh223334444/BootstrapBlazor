@@ -281,6 +281,17 @@ namespace BootstrapBlazor.Components
         public EventCallback<DateTime> ValueChanged { get; set; }
 
         /// <summary>
+        /// 获得/设置 当前日期最大值
+        /// </summary>
+        [Parameter]
+        public DateTime? MaxValue { get; set; }
+
+        /// <summary>
+        /// 获得/设置 当前日期最小值
+        /// </summary>
+        public DateTime? MinValue { get; set; }
+
+        /// <summary>
         /// 获得/设置 是否为 Range 内使用 默认为 false
         /// </summary>
         [CascadingParameter]
