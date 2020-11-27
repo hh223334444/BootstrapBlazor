@@ -122,6 +122,7 @@ namespace BootstrapBlazor.Components
         /// <summary>
         /// 获得/设置 当前日期最小值
         /// </summary>
+        [Parameter]
         public DateTime? MinValue { get; set; }
 
         [Inject]
