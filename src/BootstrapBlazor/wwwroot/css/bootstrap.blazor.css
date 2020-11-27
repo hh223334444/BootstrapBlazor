@@ -2340,6 +2340,11 @@ input:disabled,
                     margin-right: 4px;
                 }
 
+            .picker-panel-content table td.disabled .cell {
+                cursor: not-allowed;
+                color: #c0c4cc;
+            }
+
 .date-table th {
     padding: 5px;
     font-weight: 400;
